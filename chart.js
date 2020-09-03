@@ -36,34 +36,35 @@ $(window).on('load', function(){
                   .attr("height", h);
     
     // Draw bars
-    svg.selectAll("rect")
-       .data(data.data)
-       .enter()
-       .append("rect")
-       .attr("x", function(d,i) { return xPadding+i*bar_w;})
-       .attr("y", function(d,i) { return yScale(d[1]/1000);})
-       .attr("width", bar_w)
-       .attr('height', function(d,i) { return h-yScale(d[1]/1000)-yPadding;})
-       .attr("class","bar")
-       .attr("data-date", function(d) { return d[0];})
-       .attr("data-gdp", function(d) { return d[1];})
-        // Setup tooltip
-       .on("mouseover",function(d,i) {
-          d3.select("#tooltip")
-            .classed("hidden",false)
-            .style("left", function() {
-              return xPadding+i*bar_w-((i/bar_ct)*110) + "px";
-            })
-            .style("top",function(d) {
-              return (yPadding + (.1 * box.height)) + "px";
-            })
-            .html("$" + billions(d[1])+ " <br>" + d[0])
-            .attr("data-date",d[0]);
-       })
-       .on("mouseout", function(d){
-          d3.select("#tooltip")
-            .classed("hidden", true);
-       })
+    var rects = svg.selectAll("rect");
+    rects.data(data.data)
+         .enter()
+         .append("rect")
+         .attr("x", function(d,i) { return xPadding+i*bar_w;})
+         .attr("y", function(d,i) { return yScale(d[1]/1000);})
+         .attr("width", bar_w)
+         .attr('height', function(d,i) { return h-yScale(d[1]/1000)-yPadding;})
+         .attr("class","bar")
+         .attr("data-date", function(d) { return d[0];})
+         .attr("data-gdp", function(d) { return d[1];})
+          // Setup tooltip
+         .on("mouseover",function(event, d) {
+            var i = svg.selectAll("rect").nodes().indexOf(event.currentTarget);
+            d3.select("#tooltip")
+              .classed("hidden",false)
+              .style("left", function() {
+                return xPadding+i*bar_w-((i/bar_ct)*110) + "px";
+              })
+              .style("top",function(d) {
+                return (yPadding + (.1 * box.height)) + "px";
+              })
+              .html("$" + billions(d[1])+ " <br>" + d[0])
+              .attr("data-date",d[0]);
+         })
+         .on("mouseout", function(d){
+            d3.select("#tooltip")
+              .classed("hidden", true);
+         })
 
     const box = d3.select("#bar-chart svg").node().getBBox();
 

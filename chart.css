@@ -1,5 +1,6 @@
 #chart-container {
-  max-width: 696px;
+  max-width: 98vw;
+  width: 1000px;
   margin: 2% auto;
   padding: 2% 2vw;
   background-color: transparent;
