@@ -1,0 +1,29 @@
+{
+  "name": "d3-gdp-barchart",
+  "version": "1.0.0",
+  "description": "d3 generated bar chart of US GDP",
+  "browserslist": [
+    ">2%"
+  ],
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html -d docs --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dan-mba/d3-gdp-barchart.git"
+  },
+  "author": "dan-mba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dan-mba/d3-gdp-barchart/issues"
+  },
+  "homepage": "https://github.com/dan-mba/d3-gdp-barchart#readme",
+  "dependencies": {
+    "d3": "^6.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "parcel-bundler": "^1.12.5"
+  }
+}
