@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/dan-mba/d3-gdp-barchart#readme",
   "dependencies": {
-    "d3": "^6.7.0"
+    "d3": "^7.0.0"
   },
   "devDependencies": {
     "eslint": "^7.28.0",
