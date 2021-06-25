@@ -12,16 +12,16 @@ function chart(data){
   const xPadding = 20;
   const yPadding = 40;
   
-  const bar_w = (w-2*xPadding)/data.data.length;
-  const bar_ct = data.data.length;
+  const bar_w = (w-2*xPadding)/data.length;
+  const bar_ct = data.length;
   
   //Configure scaling functions
   const yScale = d3.scaleLinear()
-                   .domain([0,d3.max(data.data, function(d) { return d[1]/1000;})])
+                   .domain([0,d3.max(data, function(d) { return d["GDPA"]/1000;})])
                    .range([h-yPadding,yPadding]);
   const xScale = d3.scaleTime()
-                   .domain([new Date(d3.min(data.data,function(d) { return d[0];})),
-                            new Date(d3.max(data.data,function(d) { return d[0];}))])
+                   .domain([new Date(d3.min(data,function(d) { return d["DATE"];})),
+                            new Date(d3.max(data,function(d) { return d["DATE"]}))])
                    .range([xPadding,w-xPadding])
   
   // Configure SVG area
@@ -32,16 +32,16 @@ function chart(data){
   
   // Draw bars
   var rects = svg.selectAll("rect");
-  rects.data(data.data)
+  rects.data(data)
        .enter()
        .append("rect")
-       .attr("x", function(d,i) { return xPadding+i*bar_w;})
-       .attr("y", function(d) { return yScale(d[1]/1000);})
-       .attr("width", bar_w)
-       .attr('height', function(d) { return h-yScale(d[1]/1000)-yPadding;})
+       .attr("x", function(d,i) { return xPadding+i*bar_w+1;})
+       .attr("y", function(d) { return yScale(d["GDPA"]/1000);})
+       .attr("width", Math.floor(bar_w)-4)
+       .attr('height', function(d) { return h-yScale(d["GDPA"]/1000)-yPadding;})
        .attr("class","bar")
-       .attr("data-date", function(d) { return d[0];})
-       .attr("data-gdp", function(d) { return d[1];})
+       .attr("data-date", function(d) { return d["DATE"];})
+       .attr("data-gdp", function(d) { return d["GDPA"];})
         // Setup tooltip
        .on("mouseover",function(event, d) {
           var i = svg.selectAll("rect").nodes().indexOf(event.currentTarget);
@@ -53,8 +53,8 @@ function chart(data){
             .style("top",function() {
               return (yPadding + (.1 * box.height)) + "px";
             })
-            .html("$" + billions(d[1])+ " <br>" + d[0])
-            .attr("data-date",d[0]);
+            .html(`${billions(d["GDPA"])}<br>${d["DATE"].split("-")[0]}`)
+            .attr("data-date",d["DATE"]);
        })
        .on("mouseout", function(){
           d3.select("#tooltip")

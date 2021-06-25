@@ -1,4 +1,4 @@
-import data from './GDP-data.json'
+import data from './FRED-GDPA.json'
 import chart from './chart'
 
 function ready() {

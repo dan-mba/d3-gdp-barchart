@@ -1,16 +1,30 @@
+body {
+  margin: 0 auto;
+  max-width: 96vw;
+  width: 1600px;
+
+}
+
 #chart-container {
-  max-width: 98vw;
-  width: 1000px;
-  margin: 2% auto;
-  padding: 2% 2vw;
+  margin: 0;
+  padding: 2% 0;
   background-color: transparent;
-  border-radius: 5px;
 }
 
 #bar-chart {
   max-height: 68vw;
-  height: 450px;
+  height: 700px;
   position: relative;
+}
+
+#title {
+  text-align: center;
+  font-size: 2em;
+}
+
+#subhead {
+  text-align: center;
+  font-size: 1.22em;
 }
 
 #tooltip {
@@ -23,4 +37,11 @@
 
 .hidden {
   display: none;
+}
+
+rect {
+  stroke-width: 1px;
+  stroke: #000;
+  fill: #333;
+  fill-opacity: 0.2;
 }
