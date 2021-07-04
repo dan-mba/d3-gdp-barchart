@@ -7,10 +7,12 @@ function billions(num) {
 }
 
 function chart(data){
-  const w = document.getElementById("bar-chart").getBoundingClientRect().width;
-  const h = Math.min(document.getElementById("bar-chart").getBoundingClientRect().height,w/1.5);
-  const xPadding = 20;
-  const yPadding = 40;
+  const w = 1200;
+  const svgWidth = document.getElementById("bar-chart").getBoundingClientRect().width;
+  const h = 800;
+  const svgHeight =  document.getElementById("bar-chart").getBoundingClientRect().height
+  const xPadding = 30;
+  const yPadding = 60;
   
   const bar_w = (w-2*xPadding)/data.length;
   const bar_ct = data.length;
@@ -27,8 +29,9 @@ function chart(data){
   // Configure SVG area
   const svg = d3.select("#bar-chart")
                 .append("svg")
-                .attr("width", w)
-                .attr("height", h);
+                .attr("width", document.getElementById("bar-chart").getBoundingClientRect().width)
+                .attr("height", document.getElementById("bar-chart").getBoundingClientRect().height)
+                .attr("viewBox", `0 0 ${w} ${h}`);
   
   // Draw bars
   var rects = svg.selectAll("rect");
@@ -48,10 +51,10 @@ function chart(data){
           d3.select("#tooltip")
             .classed("hidden",false)
             .style("left", function() {
-              return xPadding+i*bar_w-((i/bar_ct)*110) + "px";
+              return xZero  + scale * (i * bar_w) - ((i/bar_ct)*110) + "px";
             })
             .style("top",function() {
-              return (yPadding + (.1 * box.height)) + "px";
+              return (.5 * svgHeight) - (.4 * h * scale)  + "px";
             })
             .html(`${billions(d["GDPA"])}<br>${d["DATE"].split("-")[0]}`)
             .attr("data-date",d["DATE"]);
@@ -62,6 +65,16 @@ function chart(data){
        })
 
   const box = d3.select("#bar-chart svg").node().getBBox();
+  // absolute postition of x-axis zero point 
+  let xZero = box.x;
+  // scaling factor compared to viewBox
+  let scale = Math.min(svgWidth/w, svgHeight/h);
+  if (box.width > w) { 
+    xZero += (svgWidth - w) / 2;
+  } else {
+    xZero += (svgWidth - (scale * w)) / 2;
+  }
+
   // Setup Axis labels
   const xAxis = d3.axisBottom(xScale);
   const yAxis = d3.axisLeft(yScale);
@@ -71,9 +84,9 @@ function chart(data){
      .attr("id","x-axis")
      .call(xAxis)
      .selectAll("text")
-     .attr("y",-5)
-     .attr("x",20)
-     .attr("transform","rotate(90)")
+     .attr("y", -2)
+     .attr("x", 32)
+     .attr("transform","rotate(60)")
   
   svg.append("g")
      .attr("transform","translate(" + xPadding + ",0)")

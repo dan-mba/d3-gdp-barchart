@@ -12,8 +12,8 @@ body {
 }
 
 #bar-chart {
-  max-height: 68vw;
-  height: 700px;
+  max-height: 80vh;
+  height: 800px;
   position: relative;
 }
 
@@ -27,12 +27,15 @@ body {
   font-size: 1.22em;
 }
 
+
 #tooltip {
   position: absolute;
   background-color: #333;
   color: white;
   padding: 5px;
   border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 14px;
 }
 
 .hidden {
@@ -44,4 +47,9 @@ rect {
   stroke: #000;
   fill: #333;
   fill-opacity: 0.2;
+}
+
+.tick text {
+  font-size: 20px;
+  font-family: monospace;
 }
