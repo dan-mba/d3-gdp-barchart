@@ -6,8 +6,8 @@
     ">2%"
   ],
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html -d docs --public-url ./"
+    "start": "parcel -p 8080 src/index.html",
+    "build": "parcel build src/index.html --dist-dir docs --public-url ./"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,6 @@
   },
   "devDependencies": {
     "eslint": "^8.8.0",
-    "parcel-bundler": "^1.12.5"
+    "parcel": "^2.2.1"
   }
 }
