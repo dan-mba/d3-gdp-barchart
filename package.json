@@ -23,7 +23,7 @@
     "d3": "^7.4.4"
   },
   "devDependencies": {
-    "eslint": "^8.13.0",
+    "eslint": "^8.14.0",
     "parcel": "^2.5.0"
   }
 }
