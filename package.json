@@ -24,6 +24,6 @@
   },
   "devDependencies": {
     "eslint": "^8.17.0",
-    "parcel": "^2.6.0"
+    "parcel": "^2.6.1"
   }
 }
