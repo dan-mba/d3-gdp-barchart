@@ -6,8 +6,10 @@
     ">2%"
   ],
   "scripts": {
-    "start": "parcel -p 8080 src/index.html",
-    "build": "parcel build src/index.html --dist-dir docs --public-url ./"
+    "start": "npm run dev",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview  --port 8080"
   },
   "repository": {
     "type": "git",
@@ -20,10 +22,12 @@
   },
   "homepage": "https://github.com/dan-mba/d3-gdp-barchart#readme",
   "dependencies": {
-    "d3": "^7.7.0"
+    "d3": "^7.7.0",
+    "vite-plugin-html": "^3.2.0"
   },
   "devDependencies": {
     "eslint": "^8.29.0",
-    "parcel": "^2.8.1"
+    "parcel": "^2.8.2",
+    "vite": "^4.0.1"
   }
 }
