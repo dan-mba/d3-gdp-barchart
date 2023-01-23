@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "eslint": "^8.32.0",
-    "parcel": "^2.8.2",
+    "parcel": "^2.8.3",
     "vite": "^4.0.4"
   }
 }
