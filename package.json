@@ -2,6 +2,7 @@
   "name": "d3-gdp-barchart",
   "version": "1.0.0",
   "description": "d3 generated bar chart of US GDP",
+  "type": "module",
   "browserslist": [
     ">2%"
   ],
