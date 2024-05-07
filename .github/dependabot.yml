@@ -7,6 +7,12 @@ updates:
     open-pull-requests-limit: 10
     schedule:
       interval: "weekly"
+    groups:
+      lint:
+        patterns:
+          - "eslint*"
+          - "@eslint*"
+          - "globals"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
