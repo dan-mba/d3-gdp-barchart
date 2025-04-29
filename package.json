@@ -29,6 +29,6 @@
   "devDependencies": {
     "eslint": "^9.25.1",
     "globals": "^16.0.0",
-    "vite": "^6.3.2"
+    "vite": "^6.3.3"
   }
 }
