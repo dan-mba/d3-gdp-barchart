@@ -7,7 +7,7 @@
     ">2%"
   ],
   "scripts": {
-    "start": "npm run dev",
+    "start": "pnpm dev",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview  --port 8080"
