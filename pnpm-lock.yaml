@@ -13,7 +13,7 @@ importers:
         version: 7.9.0
       vite-plugin-html:
         specifier: ^3.2.2
-        version: 3.2.2(vite@7.1.11(terser@5.44.0))
+        version: 3.2.2(vite@7.1.12(terser@5.44.0))
     devDependencies:
       eslint:
         specifier: ^9.38.0
@@ -22,8 +22,8 @@ importers:
         specifier: ^16.4.0
         version: 16.4.0
       vite:
-        specifier: ^7.1.11
-        version: 7.1.11(terser@5.44.0)
+        specifier: ^7.1.12
+        version: 7.1.12(terser@5.44.0)
 
 packages:
 
@@ -1066,8 +1066,8 @@ packages:
     peerDependencies:
       vite: '>=2.0.0'
 
-  vite@7.1.11:
-    resolution: {integrity: sha512-uzcxnSDVjAopEUjljkWh8EIrg6tlzrjFUfMcR1EVsRDGwf/ccef0qQPRyOrROwhrTDaApueq+ja+KLPlzR/zdg==}
+  vite@7.1.12:
+    resolution: {integrity: sha512-ZWyE8YXEXqJrrSLvYgrRP7p62OziLW7xI5HYGWFzOvupfAlrLvURSzv/FyGyy0eidogEM3ujU+kUG1zuHgb6Ug==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -2080,7 +2080,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  vite-plugin-html@3.2.2(vite@7.1.11(terser@5.44.0)):
+  vite-plugin-html@3.2.2(vite@7.1.12(terser@5.44.0)):
     dependencies:
       '@rollup/pluginutils': 4.2.1
       colorette: 2.0.20
@@ -2094,9 +2094,9 @@ snapshots:
       html-minifier-terser: 6.1.0
       node-html-parser: 5.4.2
       pathe: 0.2.0
-      vite: 7.1.11(terser@5.44.0)
+      vite: 7.1.12(terser@5.44.0)
 
-  vite@7.1.11(terser@5.44.0):
+  vite@7.1.12(terser@5.44.0):
     dependencies:
       esbuild: 0.25.11
       fdir: 6.5.0(picomatch@4.0.3)
