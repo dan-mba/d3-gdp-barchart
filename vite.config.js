@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
-import {createHtmlPlugin} from 'vite-plugin-html';
+import { ViteMinifyPlugin } from 'vite-plugin-minify';
 
 export default defineConfig({
   plugins: [
-    createHtmlPlugin()
+    ViteMinifyPlugin({})
   ],
   server: {
     port: 8080,
